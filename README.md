@@ -1,14 +1,16 @@
-# se3050---uee-2021s2_reg_we_40
-se3050---uee-2021s2_reg_we_40 created by GitHub Classroom
+# slt_broadband_application
 
+A new Flutter project.
 
-Group Members
+## Getting Started
 
-IT Number - Fullname - Github name
+This project is a starting point for a Flutter application.
 
-IT19134536 - A.L.A.D.C.V Ambegoda - vikumsri
-IT19167992 - S.V. Wanigasekara - VixenSv
-IT19135830 - M.V.S Goonawardene - mith99
-IT19136134 - A.R Kulatunga - Ashini98K
+A few resources to get you started if this is your first Flutter project:
 
-App Selected - SLT broadband mobile application
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
