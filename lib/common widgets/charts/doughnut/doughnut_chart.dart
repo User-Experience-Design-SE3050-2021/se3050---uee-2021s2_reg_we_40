@@ -22,7 +22,7 @@ class _PieChartState extends State<PieChart> {
           animate: true,
           animationDuration: Duration(seconds: 1),
           defaultRenderer: new charts.ArcRendererConfig(
-              arcWidth: 50, arcRendererDecorators: [])),
+              arcWidth: 40, arcRendererDecorators: [])),
     );
   }
 }

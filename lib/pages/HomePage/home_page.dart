@@ -10,21 +10,23 @@ import 'package:slt_broadband_application/pages/usage_page/usage_page.dart';
 
 class HomePage extends StatefulWidget {
   final initialPage;
-  HomePage(this.initialPage) : super();
+  final title;
+  HomePage(this.initialPage, this.title) : super();
   @override
-  _HomePageState createState() => _HomePageState(this.initialPage);
+  _HomePageState createState() => _HomePageState(this.initialPage, this.title);
 }
 
 class _HomePageState extends State<HomePage> {
-  var title;
+  final title;
   final initialPage;
   Widget bodyContent;
+  String appBarTitle;
 
-  _HomePageState(this.initialPage);
+  _HomePageState(this.initialPage, this.title);
   @override
   void initState() {
     super.initState();
-    this.title = 'Usage';
+    this.appBarTitle = this.title;
     // this.bodyContent = UsagePage();
     this.bodyContent = this.initialPage;
   }
@@ -36,35 +38,35 @@ class _HomePageState extends State<HomePage> {
           icon: Icons.pie_chart,
           label: 'Usage',
           onPressed: () => setState(() {
-                this.title = 'Usage';
+                this.appBarTitle = 'Usage';
                 this.bodyContent = UsagePage();
               })),
       SLTBNBItemModel(
           icon: Icons.list,
           label: 'Manage',
           onPressed: () => setState(() {
-                this.title = 'Manage';
+                this.appBarTitle = 'Manage';
                 this.bodyContent = ManagePage();
               })),
       SLTBNBItemModel(
           icon: Icons.history,
           label: 'History',
           onPressed: () => setState(() {
-                this.title = 'History';
+                this.appBarTitle = 'History';
                 this.bodyContent = HistoryPage();
               })),
       SLTBNBItemModel(
           icon: Icons.notifications,
           label: 'Promo',
           onPressed: () => setState(() {
-                this.title = 'Promotion';
+                this.appBarTitle = 'Promotion';
                 this.bodyContent = PromoPage();
               })),
       SLTBNBItemModel(
           icon: Icons.account_circle_rounded,
           label: 'Profile',
           onPressed: () => setState(() {
-                this.title = 'Profile';
+                this.appBarTitle = 'Profile';
                 this.bodyContent = ProfilePage();
               })),
     ];
@@ -73,7 +75,7 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomPadding: true,
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        title: Text(title),
+        title: Text(appBarTitle),
         backgroundColor: Color(0xff2776B8),
       ),
       bottomNavigationBar: SLTBNB(

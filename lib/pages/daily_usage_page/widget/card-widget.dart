@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:slt_broadband_application/pages/HomePage/home_page.dart';
 import 'package:slt_broadband_application/pages/daily_usage_page/widget/progress-indicator.dart';
+import 'package:slt_broadband_application/pages/detailed_report_page/detailed-report-page.dart';
 
 class UsageCard extends StatelessWidget {
-  const UsageCard({Key key}) : super(key: key);
+  final onPressed;
+  const UsageCard({Key key, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,7 @@ class UsageCard extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 5,
         child: MaterialButton(
           color: Colors.blue[800],
-          onPressed: () => {},
+          onPressed: this.onPressed,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20))),
           child: Row(

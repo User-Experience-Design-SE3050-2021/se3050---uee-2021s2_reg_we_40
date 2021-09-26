@@ -14,6 +14,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'SLT Broadband',
         initialRoute: '/home',
-        routes: {'/home': (context) => HomePage(UsagePage())});
+        routes: {'/home': (context) => HomePage(UsagePage(), 'Usage')});
   }
 }

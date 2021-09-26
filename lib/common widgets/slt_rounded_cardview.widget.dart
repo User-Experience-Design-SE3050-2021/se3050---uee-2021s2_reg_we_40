@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class RoundedCardView extends StatelessWidget {
   final String label;
   final IconData icon;
-  const RoundedCardView({Key key, this.icon, this.label}) : super(key: key);
+  final onPressed;
+  const RoundedCardView({Key key, this.icon, this.label, this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class RoundedCardView extends StatelessWidget {
           color: Colors.lightBlue[700],
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(20))),
-          onPressed: () => print('pressed '),
+          onPressed: this.onPressed,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
