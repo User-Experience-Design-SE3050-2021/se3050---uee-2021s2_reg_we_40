@@ -14,11 +14,18 @@ class _DetailedReportPageState extends State<DetailedReportPage> {
   List<charts.Series<Usage, String>> seriesPieData =
       List<charts.Series<Usage, String>>();
   var pieData = [
-    new Usage('Youtube', 70, Colors.red),
-    new Usage('League of legends', 10, Colors.orange),
-    new Usage('Twitch', 10, Colors.purple),
-    new Usage('Whats App', 8, Colors.green),
-    new Usage('Google Play', 2, Colors.grey),
+    new Usage('Youtube', 49.38, Colors.red),
+    new Usage('Windows Update', 28.8, Colors.orange),
+    new Usage('Google Play', 10.2, Colors.yellow),
+    new Usage('games', 5, Colors.purple),
+    new Usage('FaceBook', 2, Colors.blue),
+    new Usage('RLP', 1, Colors.green),
+    new Usage('Share Point', 0.5, Colors.pink),
+    new Usage('Facebook video', 0.25, Colors.lightBlue),
+    new Usage('WhatsApp', 2, Colors.blue[500]),
+    new Usage('WhatsApp', 2, Colors.blue[500]),
+    new Usage('Other', 2, Colors.grey[500]),
+
   ];
   @override
   void initState() {
