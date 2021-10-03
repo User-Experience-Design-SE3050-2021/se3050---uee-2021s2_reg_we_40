@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:slt_broadband_application/common%20widgets/charts/doughnut/doughnut_chart.dart';
+import 'package:slt_broadband_application/pages/Extra%20GB%20Usage/extra_gb_usage.dart';
 import 'package:slt_broadband_application/pages/HomePage/home_page.dart';
+import 'package:slt_broadband_application/pages/add_ons_usage/add_ons_usage.dart';
+import 'package:slt_broadband_application/pages/bonus_data_usage/bonus_data_uage.dart';
 import 'package:slt_broadband_application/pages/daily_usage_page/daily_usage_page.dart';
 import 'package:slt_broadband_application/pages/detailed_report_page/detailed-report-page.dart';
 
@@ -145,9 +148,20 @@ class _UsagePageState extends State<UsagePage> {
           children: <Widget>[
             SLTRoundedButton(
               label: 'Extra GB',
-            ),
+    onPressed: () => Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+    builder: (context) => HomePage(ExtraGBUsage(),'Extra GB')),
+    ),
+    ),
+
             SLTRoundedButton(
               label: 'Add-Ons',
+              onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(AddOnsUsage(),'Add-Ons')),
+              ),
             ),
           ],
         ),
@@ -155,7 +169,12 @@ class _UsagePageState extends State<UsagePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             SLTRoundedButton(
-              label: 'Bouns Data',
+              label: 'Bonus Data',
+              onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(BonusDataUsage(),'Bonus Data')),
+              ),
             ),
             SLTRoundedButton(
               label: 'Free Data',

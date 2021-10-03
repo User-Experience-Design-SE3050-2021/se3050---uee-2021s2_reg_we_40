@@ -7,7 +7,9 @@ import 'package:slt_broadband_application/pages/manage_page/manage_page.dart';
 import 'package:slt_broadband_application/pages/profile_page/profile_page.dart';
 import 'package:slt_broadband_application/pages/promo_page/promo_page.dart';
 import 'package:slt_broadband_application/pages/usage_page/usage_page.dart';
-
+import 'package:slt_broadband_application/pages/Extra GB Usage/extra_gb_usage.dart';
+import 'package:slt_broadband_application/pages/bonus_data_usage/bonus_data_uage.dart';
+import 'package:slt_broadband_application/pages/add_ons_usage/add_ons_usage.dart';
 class HomePage extends StatefulWidget {
   final initialPage;
   final title;
