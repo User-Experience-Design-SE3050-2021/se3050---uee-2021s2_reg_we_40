@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:slt_broadband_application/common%20widgets/charts/doughnut/doughnut_chart.dart';
+import 'package:slt_broadband_application/utils/constants.dart';
 
 class DetailedReportPage extends StatefulWidget {
   const DetailedReportPage({Key key}) : super(key: key);
@@ -81,9 +82,6 @@ class _DetailedReportPageState extends State<DetailedReportPage> {
             ),
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -94,7 +92,75 @@ class _DetailedReportPageState extends State<DetailedReportPage> {
               activeColor: Colors.blue,
             )
           ],
-        )
+        ),
+        Expanded(
+          child: Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20))),
+            color: Color(0xff002B44),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Container(
+                child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    var data = Detailed_Report_data_list[index];
+                    return Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.circle,
+                                        size: 15,
+                                        color:
+                                            Detailed_Report_color_list[index],
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        data['label'],
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  child: Text(data['value'],
+                                      style: TextStyle(color: Colors.white)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          child: Divider(
+                            color: Colors.white,
+                            thickness: 1,
+                          ),
+                        )
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }

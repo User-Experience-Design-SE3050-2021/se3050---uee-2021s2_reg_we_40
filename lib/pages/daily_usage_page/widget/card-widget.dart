@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:slt_broadband_application/pages/HomePage/home_page.dart';
 import 'package:slt_broadband_application/pages/daily_usage_page/widget/progress-indicator.dart';
-import 'package:slt_broadband_application/pages/detailed_report_page/detailed-report-page.dart';
 
 class UsageCard extends StatelessWidget {
+  
   final onPressed;
   const UsageCard({Key key, this.onPressed}) : super(key: key);
 
