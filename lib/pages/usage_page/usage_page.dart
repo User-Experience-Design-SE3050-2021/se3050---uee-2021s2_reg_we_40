@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:slt_broadband_application/common%20widgets/charts/doughnut/doughnut_chart.dart';
+import 'package:slt_broadband_application/pages/Extra%20GB%20Usage/extra_gb_usage.dart';
+import 'package:slt_broadband_application/pages/HomePage/home_page.dart';
+import 'package:slt_broadband_application/pages/add_ons_usage/add_ons_usage.dart';
+import 'package:slt_broadband_application/pages/bonus_data_usage/bonus_data_uage.dart';
+import 'package:slt_broadband_application/pages/daily_usage_page/daily_usage_page.dart';
 
 class UsagePage extends StatefulWidget {
   const UsagePage({Key key}) : super(key: key);
@@ -41,7 +46,7 @@ class _UsagePageState extends State<UsagePage> {
         ),
         Text('Your Speed Is Normal Right Now', style: TextStyle(fontSize: 20)),
         SizedBox(
-          height: 20,
+          height: 10,
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -51,12 +56,25 @@ class _UsagePageState extends State<UsagePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width - 20,
-                  height: MediaQuery.of(context).size.height / 2.5,
+                  height: MediaQuery.of(context).size.height / 2.4,
                   child: Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(40))),
                     color: Color(0xff79ACCD),
-                    child: Stack(children: [
+                    child: Stack(children: [  
+                      Container(
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child:Padding(
+                            padding: EdgeInsets.only(top: 5),
+                            child: Text(
+                              "Standard",                            
+                              style: TextStyle(
+                                fontSize: 19.0,
+                                fontWeight:FontWeight.bold),),
+                          )
+                        ),
+                      ),            
                       Center(
                           child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -140,32 +158,20 @@ class _UsagePageState extends State<UsagePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Expanded(
-              child: Container(
-                height: MediaQuery.of(context).size.height / 10,
-                padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
-                  onPressed: () => {},
-                  color: Colors.blue,
-                  child: Text(
-                    'Extra GB',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+            SLTRoundedButton(
+              label: 'Extra GB',
+              onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(ExtraGBUsage())),
               ),
             ),
-            Expanded(
-              child: Container(
-                height: MediaQuery.of(context).size.height / 10,
-                padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
-                  onPressed: () => {},
-                  color: Colors.blue,
-                  child: Text(
-                    'Add-Ons',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+            SLTRoundedButton(
+              label: 'Add-Ons',
+               onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(AddOnsUsage())),
               ),
             ),
           ],
@@ -173,33 +179,16 @@ class _UsagePageState extends State<UsagePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Expanded(
-              child: Container(
-                height: MediaQuery.of(context).size.height / 10,
-                padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
-                  onPressed: () => {},
-                  color: Colors.blue,
-                  child: Text(
-                    'Bonus Data',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
+            SLTRoundedButton(
+              label: 'Bonus Data',
+              onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(BonusDataUsage())),
               ),
             ),
-            Expanded(
-              child: Container(
-                height: MediaQuery.of(context).size.height / 10,
-                padding: const EdgeInsets.all(8.0),
-                child: RaisedButton(
-                  onPressed: () => {},
-                  color: Colors.blue,
-                  child: Text(
-                    'Free Data',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
+            SLTRoundedButton(
+              label: 'Free Data',
             ),
           ],
         ),
@@ -207,7 +196,13 @@ class _UsagePageState extends State<UsagePage> {
             width: MediaQuery.of(context).size.width - 20,
             height: MediaQuery.of(context).size.height / 10,
             child: RaisedButton(
-              onPressed: () => {},
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
+              onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(DailyUsagePage())),
+              ),
               color: Colors.blue,
               child: Text(
                 'DAILY USAGE',
@@ -218,6 +213,36 @@ class _UsagePageState extends State<UsagePage> {
               ),
             )),
       ],
+    );
+  }
+}
+
+class SLTRoundedButton extends StatelessWidget {
+  final label;
+  final onPressed;
+  const SLTRoundedButton({
+    Key key,
+    this.label,
+    this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        height: MediaQuery.of(context).size.height / 10,
+        padding: const EdgeInsets.all(8.0),
+        child: RaisedButton(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          onPressed: this.onPressed,
+          color: Colors.blue,
+          child: Text(
+            this.label,
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
+      ),
     );
   }
 }
