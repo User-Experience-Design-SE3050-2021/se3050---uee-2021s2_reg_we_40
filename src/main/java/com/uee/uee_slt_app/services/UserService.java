@@ -14,12 +14,36 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-
-
-
-
-
     public UserModel saveUser(UserModel userModel){
         return userRepository.save(userModel);
+    }
+
+    public ResponseEntity<UserModel> getUserFromId(String timeTableId)  {
+        UserModel timeTable = userRepository.findById(timeTableId).orElseThrow();
+
+        return ResponseEntity.ok().body(timeTable);
+    }
+
+    public ResponseEntity < UserModel > changeContactIfo(String userId, UserModel userDetails) {
+
+        UserModel userModel = userRepository.findById(userId).orElseThrow();
+
+        userModel.setName(userDetails.getName());
+        userModel.setEmail(userDetails.getEmail());
+        userModel.setContactNo(userDetails.getContactNo());
+
+        final UserModel changeContactInfo = userRepository.save(userModel);
+        return ResponseEntity.ok(changeContactInfo);
+    }
+
+    public ResponseEntity < UserModel > changeBroadbandPassword(String userId, UserModel userDetails) {
+
+        UserModel userModel = userRepository.findById(userId).orElseThrow();
+
+        userModel.setBraodbandPassword(userDetails.getBraodbandPassword());
+
+
+        final UserModel changeBroadbandPassword = userRepository.save(userModel);
+        return ResponseEntity.ok(changeBroadbandPassword);
     }
 }
