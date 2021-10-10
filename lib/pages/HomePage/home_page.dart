@@ -10,7 +10,10 @@ import 'package:slt_broadband_application/pages/usage_page/usage_page.dart';
 import 'package:slt_broadband_application/pages/Extra GB Usage/extra_gb_usage.dart';
 import 'package:slt_broadband_application/pages/bonus_data_usage/bonus_data_uage.dart';
 import 'package:slt_broadband_application/pages/add_ons_usage/add_ons_usage.dart';
+<<<<<<< HEAD
 import 'package:slt_broadband_application/pages/free_data/free_data.dart';
+=======
+>>>>>>> 24e0a02b4aecb2491ce553419924c479691453cc
 
 class HomePage extends StatefulWidget {
   final initialPage;
