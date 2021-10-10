@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:slt_broadband_application/models/slt-basic-card-item-model.dart';
 import 'package:slt_broadband_application/pages/add_more_data_page/add_more_data.dart';
 import 'package:slt_broadband_application/pages/data_add_ons_page/data_add_ons_page.dart';
+import 'package:slt_broadband_application/pages/gift_data_page/gift_data.dart';
 import 'package:slt_broadband_application/pages/promo_page/model/promo_entity.dart';
+import 'package:slt_broadband_application/pages/promo_page/promo_page.dart';
+import 'package:slt_broadband_application/pages/redeem_data_page/redeem_data.dart';
 
 // const ENTRIES = [
 //   SLTPromoModel(
