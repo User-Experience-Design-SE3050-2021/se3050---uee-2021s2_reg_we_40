@@ -27,4 +27,6 @@ public class PromotionController {
     public PromotionModel savePromotion(@RequestBody PromotionModel promotionModel){
         return promotionService.savePromotion(promotionModel);
     }
+
+
 }
