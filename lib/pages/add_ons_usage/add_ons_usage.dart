@@ -107,13 +107,16 @@ class _AddOnsUsageState extends State<AddOnsUsage> {
                         ),
                         
                       ),   
-                               
+
+                      Padding(
+                        padding: EdgeInsets.only(top: 150, left: 380),
+                         child :Icon(Icons.arrow_forward_ios_rounded)),    
                       Center(
                         child:Padding(
                           padding: EdgeInsets.only(top: 5),
                         child: Container(
                           // margin: EdgeInsets.all(100.0),
-                          height: 150,
+                          height: 170,
                           width: 400,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -123,7 +126,7 @@ class _AddOnsUsageState extends State<AddOnsUsage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '0 GB',
+                            '15 GB',
                             style: TextStyle(
                                 fontSize: 40, fontWeight: FontWeight.bold),
                           ),
@@ -131,7 +134,8 @@ class _AddOnsUsageState extends State<AddOnsUsage> {
                           style: TextStyle(
                                 fontSize: 20,))
                         ],
-                      )))),
+                      ))
+                      )),
                       Padding(
                         padding: EdgeInsets.only(top: 15, bottom: 10),
                       child:PieChart(
@@ -185,7 +189,7 @@ class _AddOnsUsageState extends State<AddOnsUsage> {
                           padding: EdgeInsets.only(top: 5),
                         child: Container(
                           // margin: EdgeInsets.all(100.0),
-                          height: 150,
+                          height: 170,
                           width: 400,
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -195,7 +199,7 @@ class _AddOnsUsageState extends State<AddOnsUsage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '0 GB',
+                            '26 GB',
                             style: TextStyle(
                                 fontSize: 40, fontWeight: FontWeight.bold),
                           ),
@@ -250,7 +254,8 @@ class _AddOnsUsageState extends State<AddOnsUsage> {
                 gradient: LinearGradient(colors: [Colors.lightBlue[700],Colors.blue[300],Colors.lightBlue[700]],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter),
-                borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                borderRadius: BorderRadius.all(Radius.circular(10.0))
+                ),
                 
                 child: Align(
                   alignment:Alignment.center,

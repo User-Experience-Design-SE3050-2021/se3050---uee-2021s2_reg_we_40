@@ -90,7 +90,7 @@ class _ExtraGBUsageState extends State<ExtraGBUsage> {
                           padding: EdgeInsets.only(top: 5),
                         child: Container(
                           // margin: EdgeInsets.all(100.0),
-                          height: 150,
+                          height: 170,
                           width: 400,
                           decoration: BoxDecoration(
                             color: Colors.white,

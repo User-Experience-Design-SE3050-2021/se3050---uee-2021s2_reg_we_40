@@ -10,6 +10,8 @@ import 'package:slt_broadband_application/pages/usage_page/usage_page.dart';
 import 'package:slt_broadband_application/pages/Extra GB Usage/extra_gb_usage.dart';
 import 'package:slt_broadband_application/pages/bonus_data_usage/bonus_data_uage.dart';
 import 'package:slt_broadband_application/pages/add_ons_usage/add_ons_usage.dart';
+import 'package:slt_broadband_application/pages/free_data/free_data.dart';
+
 class HomePage extends StatefulWidget {
   final initialPage;
   final title;
@@ -74,7 +76,7 @@ class _HomePageState extends State<HomePage> {
     ];
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      resizeToAvoidBottomPadding: true,
+      //resizeToAvoidBottomPadding: true,
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: Text(appBarTitle),

@@ -7,6 +7,7 @@ import 'package:slt_broadband_application/pages/add_ons_usage/add_ons_usage.dart
 import 'package:slt_broadband_application/pages/bonus_data_usage/bonus_data_uage.dart';
 import 'package:slt_broadband_application/pages/daily_usage_page/daily_usage_page.dart';
 import 'package:slt_broadband_application/pages/detailed_report_page/detailed-report-page.dart';
+import 'package:slt_broadband_application/pages/free_data/free_data.dart';
 
 class UsagePage extends StatefulWidget {
   const UsagePage({Key key}) : super(key: key);
@@ -19,9 +20,24 @@ class _UsagePageState extends State<UsagePage> {
   List<charts.Series<Usage, String>> seriesPieData =
       List<charts.Series<Usage, String>>();
   var pieData = [
-    new Usage('Used', 40, Color(0xff1D89CF)),
-    new Usage('Remains', 60, Color(0xff939393))
+    new Usage('Remains', 57, Color(0xff1D89CF)),
+    new Usage('Used', 43, Color(0xff939393))
   ];
+
+  List<charts.Series<Usage, String>> seriesPieDataFree =
+      List<charts.Series<Usage, String>>();
+  var pieDataFree = [
+    new Usage('Remains', 89, Color(0xff1D89CF)),
+    new Usage('Used', 11, Color(0xff939393))
+  ];
+
+   List<charts.Series<Usage, String>> seriesPieDataTotal =
+      List<charts.Series<Usage, String>>();
+  var pieDataTotal = [
+    new Usage('Remains', 76, Color(0xff1D89CF)),
+    new Usage('Used', 24, Color(0xff939393))
+  ];
+ 
   @override
   void initState() {
     super.initState();
@@ -33,6 +49,28 @@ class _UsagePageState extends State<UsagePage> {
             charts.ColorUtil.fromDartColor(task.colorval),
         id: 'Data Usage',
         data: pieData,
+        labelAccessorFn: (Usage row, _) => '${row.value}',
+      ),
+    );
+    seriesPieDataFree.add(
+      charts.Series(
+        domainFn: (Usage usage, _) => usage.label,
+        measureFn: (Usage usage, _) => usage.value,
+        colorFn: (Usage task, _) =>
+            charts.ColorUtil.fromDartColor(task.colorval),
+        id: 'Data Usage',
+        data: pieDataFree,
+        labelAccessorFn: (Usage row, _) => '${row.value}',
+      ),
+    );
+    seriesPieDataTotal.add(
+      charts.Series(
+        domainFn: (Usage usage, _) => usage.label,
+        measureFn: (Usage usage, _) => usage.value,
+        colorFn: (Usage task, _) =>
+            charts.ColorUtil.fromDartColor(task.colorval),
+        id: 'Data Usage',
+        data: pieDataTotal,
         labelAccessorFn: (Usage row, _) => '${row.value}',
       ),
     );
@@ -62,22 +100,144 @@ class _UsagePageState extends State<UsagePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(40))),
                     color: Color(0xff79ACCD),
-                    child: Stack(children: [
-                      Center(
+                    child: Stack(children: [  
+                      Container(
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child:Padding(
+                            padding: EdgeInsets.only(top: 5),
+                            child: Text(
+                              "Standard",                            
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight:FontWeight.bold),),
+                          )
+                        ),
+                      ), 
+                      Padding(
+                        padding: EdgeInsets.only(top: 150, left: 380),
+                         child :Icon(Icons.arrow_forward_ios_rounded)),
+                               
+                       Center(
+                        child:Padding(
+                          padding: EdgeInsets.only(top: 5),
+                        child: Container(
+                          // margin: EdgeInsets.all(100.0),
+                          height: 170,
+                          width: 400,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle
+                            ),
                           child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '39 GB',
+                            '37 GB',
                             style: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.bold),
+                                fontSize: 40, fontWeight: FontWeight.bold),
                           ),
-                          Text('REMAINING')
+                          Text('REMAINING',
+                          style: TextStyle(
+                                fontSize: 20,))
                         ],
+                      ))
                       )),
-                      PieChart(
+                       Padding(
+                        padding: EdgeInsets.only(top: 15, bottom: 10),
+                      child:PieChart(
                         seriesPieData: seriesPieData,
+                      )
+                       ),
+                        Container(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child:Padding(
+                            padding: EdgeInsets.only(top: 2, bottom: 5),
+                            child: Text(
+                              "28 GB used of 65 GB (Valid till : 30-Oct)",                            
+                              style: TextStyle(
+                                fontSize: 16,
+                               ),),
+                          )
+                          
+                        ),
+                      ) 
+                    ]),
+                  ),
+                ),
+              ),
+              
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width - 20,
+                  height: MediaQuery.of(context).size.height / 2.5,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(40))),
+                    color: Color(0xff79ACCD),
+                    child: Stack(children: [
+                      Container(
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child:Padding(
+                            padding: EdgeInsets.only(top: 5),
+                            child: Text(
+                              "Free",                            
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight:FontWeight.bold),),
+                          )
+                        ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 150, left: 380),
+                         child :Icon(Icons.arrow_forward_ios_rounded)),
+                      Center(
+                        child:Padding(
+                          padding: EdgeInsets.only(top: 5),
+                        child: Container(
+                          // margin: EdgeInsets.all(100.0),
+                          height: 157,
+                          width: 400,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle
+                            ),
+                          child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            '89 GB',
+                            style: TextStyle(
+                                fontSize: 40, fontWeight: FontWeight.bold),
+                          ),
+                          Text('REMAINING',
+                          style: TextStyle(
+                                fontSize: 20,))
+                        ],
+                      ))
+                      )),
+                     Padding(
+                        padding: EdgeInsets.only(top: 15, bottom: 10),
+                      child:PieChart(
+                        seriesPieData: seriesPieDataFree,
+                      )),
+                       Container(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child:Padding(
+                            padding: EdgeInsets.only(top: 2, bottom: 5),
+                            child: Text(
+                              "11 GB used of 100 GB (Valid till : 30-Oct)",                            
+                              style: TextStyle(
+                                fontSize: 16,
+                               ),),
+                          )
+                          
+                        ),
+                      ) 
                     ]),
                   ),
                 ),
@@ -92,50 +252,63 @@ class _UsagePageState extends State<UsagePage> {
                         borderRadius: BorderRadius.all(Radius.circular(40))),
                     color: Color(0xff79ACCD),
                     child: Stack(children: [
+                      Container(
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child:Padding(
+                            padding: EdgeInsets.only(top: 5),
+                            child: Text(
+                              "Standard + Free",                            
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight:FontWeight.bold),),
+                          )
+                        ),
+                      ),
                       Center(
+                        child:Padding(
+                          padding: EdgeInsets.only(top: 5),
+                        child: Container(
+                          // margin: EdgeInsets.all(100.0),
+                          height: 168,
+                          width: 400,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle
+                            ),
                           child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            '39 GB',
+                            '125 GB',
                             style: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.bold),
+                                fontSize: 40, fontWeight: FontWeight.bold),
                           ),
-                          Text('REMAINING')
+                          Text('REMAINING',
+                          style: TextStyle(
+                                fontSize: 20,))
                         ],
+                      ))
                       )),
-                      PieChart(
-                        seriesPieData: seriesPieData,
-                      ),
-                    ]),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width - 20,
-                  height: MediaQuery.of(context).size.height / 2.5,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(40))),
-                    color: Color(0xff79ACCD),
-                    child: Stack(children: [
-                      Center(
-                          child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            '39 GB',
-                            style: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.bold),
-                          ),
-                          Text('REMAINING')
-                        ],
+                      Padding(
+                        padding: EdgeInsets.only(top: 15, bottom: 10),
+                      child:PieChart(
+                        seriesPieData: seriesPieDataTotal,
                       )),
-                      PieChart(
-                        seriesPieData: seriesPieData,
-                      ),
+                      Container(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child:Padding(
+                            padding: EdgeInsets.only(top: 2, bottom: 5),
+                            child: Text(
+                              "40 GB used of 160 GB (Valid till : 30-Oct)",                            
+                              style: TextStyle(
+                                fontSize: 16,
+                               ),),
+                          )
+                          
+                        ),
+                      )
                     ]),
                   ),
                 ),
@@ -178,6 +351,12 @@ class _UsagePageState extends State<UsagePage> {
             ),
             SLTRoundedButton(
               label: 'Free Data',
+               onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomePage(FreeData(),'Bonus Data')),
+              ),
+              
             ),
           ],
         ),

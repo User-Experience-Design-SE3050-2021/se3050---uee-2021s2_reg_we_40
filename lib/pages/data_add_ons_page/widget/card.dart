@@ -33,14 +33,12 @@ class SLTDataAddOnsCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(
-                  right: 8.0,
-                ),
+                padding: EdgeInsets.all(5.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                        padding: EdgeInsets.only(top: 10),
+                        padding: EdgeInsets.only(top: 8),
                         child: Text(
                           this.tittle,
                           style: TextStyle(
@@ -97,7 +95,25 @@ class SLTDataAddOnsCard extends StatelessWidget {
                           width: 60.0,
                         ),
                         RaisedButton(
-                          onPressed: () => {},
+                          onPressed: () => showDialog<String>(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                              title: const Text('Payment'),
+                              content: const Text(
+                                  'Are you sure you want to purchase'),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(context, 'Cancel'),
+                                  child: const Text('Cancel'),
+                                ),
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context, 'OK'),
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          ),
                           color: Colors.lightBlue[900],
                           child: Text(
                             'Add Data',
