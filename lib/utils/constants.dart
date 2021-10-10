@@ -2,38 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:slt_broadband_application/models/slt-basic-card-item-model.dart';
 import 'package:slt_broadband_application/pages/add_more_data_page/add_more_data.dart';
 import 'package:slt_broadband_application/pages/data_add_ons_page/data_add_ons_page.dart';
-import 'package:slt_broadband_application/pages/promo_page/model/promo_model.dart';
+import 'package:slt_broadband_application/pages/promo_page/model/promo_entity.dart';
 
-const ENTRIES = [
-  SLTPromoModel(
-      amount: '500',
-      description: 'description',
-      imageUrl:
-          'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
-      route: '/page',
-      title: 'NetFlix'),
-  SLTPromoModel(
-      amount: '500',
-      description: 'description',
-      imageUrl:
-          'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
-      route: '/page',
-      title: 'NetFlix'),
-  SLTPromoModel(
-      amount: '500',
-      description: 'description',
-      imageUrl:
-          'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
-      route: '/page',
-      title: 'NetFlix'),
-  SLTPromoModel(
-      amount: '500',
-      description: 'description',
-      imageUrl:
-          'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
-      route: '/page',
-      title: 'NetFlix')
-];
+// const ENTRIES = [
+//   SLTPromoModel(
+//       amount: '500',
+//       description: 'description',
+//       imageUrl:
+//           'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
+//       route: '/page',
+//       title: 'NetFlix'),
+//   SLTPromoModel(
+//       amount: '500',
+//       description: 'description',
+//       imageUrl:
+//           'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
+//       route: '/page',
+//       title: 'NetFlix'),
+//   SLTPromoModel(
+//       amount: '500',
+//       description: 'description',
+//       imageUrl:
+//           'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
+//       route: '/page',
+//       title: 'NetFlix'),
+//   SLTPromoModel(
+//       amount: '500',
+//       description: 'description',
+//       imageUrl:
+//           'https://www.indiewire.com/wp-content/uploads/2020/08/netflix.jpg',
+//       route: '/page',
+//       title: 'NetFlix')
+// ];
 
 var SLT_MANAGE_DATA_PAGE_CONTENT = [
   SLTBasicCardItem(
@@ -107,3 +107,9 @@ const ADD_MORE_DATA_CARDS = [
 
 
 ];
+
+const GET_HISTORY_DATA_LIST_URL = 'dflpiksj';
+
+var SAMPLE_PROMO = '[{"id":"6161b16e1a8fd3410697d89d","title":"netflix","imageUrl":"https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmV0ZmxpeHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80","description":"nn","price":"600"},{"id":"6161b17c1a8fd3410697d89e","title":"Work and learn","imageUrl":"https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bmV0ZmxpeHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80","description":"nn","price":"600"}]';
+
+var SAMPLE_HISTORY = '[{"id":"61626d0321d16a231df17a8f","packageName":"Work and learn","dataLimit":"30GB","date":"2021-09-02T00:00:00.000+00:00","time":"4:00","price":"500"}]';

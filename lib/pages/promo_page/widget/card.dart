@@ -5,14 +5,13 @@ class SLTPromoCard extends StatelessWidget {
   final String titleText;
   final String description;
   final String amount;
-  final String route;
 
   const SLTPromoCard({
     Key key,
     this.imageUrl,
     this.titleText,
     this.description,
-    this.amount, this.route,
+    this.amount,
   }) : super(key: key);
 
   @override

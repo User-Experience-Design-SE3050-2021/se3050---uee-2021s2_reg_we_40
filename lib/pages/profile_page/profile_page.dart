@@ -1,4 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:slt_broadband_application/pages/HomePage/home_page.dart';
+import 'package:slt_broadband_application/pages/change_brodband_password/change_broadband_password.dart';
+import 'package:slt_broadband_application/pages/change_contact_info_page/change_contact_info_page.dart';
+import 'package:slt_broadband_application/pages/profile_page/bloc/bloc.dart';
 import 'package:slt_broadband_application/pages/usage_page/usage_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -126,21 +132,46 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
-        ProfilePageTiles(label: 'Change Contact Information',firstIcon: Icons.perm_device_information,),
-        ProfilePageTiles(label: 'Change Brodband password',firstIcon: Icons.vpn_key_rounded,),
-        ProfilePageTiles(label: 'Change portal/App password',firstIcon: Icons.lock,),
-        ProfilePageTiles(label: 'Disable Detailed report',firstIcon: Icons.upload_file,),
+        ProfilePageTiles(label: 'Change Contact Information',firstIcon: Icons.perm_device_information,onPressed: () =>Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  HomePage(ChangeContactInfo(), 'Change Contact Info')),
+        ),),
+        ProfilePageTiles(label: 'Change Brodband password',firstIcon: Icons.vpn_key_rounded,onPressed: () =>Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  HomePage(ChangeBroadBandPassword(), 'Change Contact Info')),
+        ),),
+        ProfilePageTiles(label: 'Change portal/App password',firstIcon: Icons.lock,onPressed: () =>Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  HomePage(ChangeContactInfo(), 'Change Contact Info')),
+        ),),
+        ProfilePageTiles(label: 'Disable Detailed report',firstIcon: Icons.upload_file,onPressed: () =>Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  HomePage(ChangeContactInfo(), 'Change Contact Info')),
+        ),),
 
       ],
     );
+  }
+
+  BlocProvider<ProfileBloc> buildBody(BuildContext){
+
   }
 }
 
 class ProfilePageTiles extends StatelessWidget {
   final String label;
   final IconData firstIcon;
+  final Function onPressed;
   ProfilePageTiles({
-    Key key, this.label, this.firstIcon,
+    Key key, this.label, this.firstIcon, this.onPressed,
   }) : super(key: key);
 
   @override
@@ -149,10 +180,11 @@ class ProfilePageTiles extends StatelessWidget {
         flex: 1,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: Color(0xff118DD2)
+          child: MaterialButton(
+            onPressed: this.onPressed,
+            color: Color(0xff118DD2),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

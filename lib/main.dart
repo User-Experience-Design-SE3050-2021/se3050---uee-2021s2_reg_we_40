@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:slt_broadband_application/pages/HomePage/home_page.dart';
 import 'package:slt_broadband_application/pages/usage_page/usage_page.dart';
+import 'injectionContainer.dart' as di;
 
-void main() {
+Future<void> main() async {
+  await di.init();
   runApp(MyApp());
 }
 
